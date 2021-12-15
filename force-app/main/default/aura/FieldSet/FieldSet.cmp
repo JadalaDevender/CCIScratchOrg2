@@ -1,0 +1,12 @@
+<aura:component controller="FieldSetHandler" implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:attribute name="fieldSetValues" type="List"/>
+    <br/><center><div style="font-weight:bold;font-size:15px;"><u>Field Set</u></div></center><br/>
+    <table class="slds-table slds-table_cell-buffer slds-cell-buffer_left slds-cell-buffer_right slds-table_bordered slds-table_striped">
+        <tr>
+            <aura:iteration items="{!v.fieldSetValues}" var="field">
+                <td>{!field.label}</td>
+            </aura:iteration>
+        </tr>
+    </table>
+</aura:component>

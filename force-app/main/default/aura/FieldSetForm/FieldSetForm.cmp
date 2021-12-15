@@ -1,0 +1,12 @@
+<aura:component controller="FieldSetCtlr" implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId">
+<aura:handler name="init" value="{!this}" action="{!c.init}" />
+<aura:attribute name="record" type="Object" description="The record being edited"/>
+<aura:attribute name="fsName" type="String"/>
+<aura:attribute name="typeName" type="String"/>
+<aura:attribute name="fields" type="Object[]"/>
+<aura:attribute name="form" type="Aura.Component[]"/>
+<aura:attribute name="inputToField" type="Map"/>
+<p>
+{!v.form}
+</p>
+</aura:component>

@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+    <aura:attribute name="FirstName" type="String" />
+    <aura:attribute name="LastName" type="String" />
+    <aura:attribute name="Phone" type="String" />
+    <aura:attribute name="Email" type="String" />
+    <aura:handler name="sampleComponentEvent" event="c:compEvent" action="{!c.handleComponentEvent}"/>
+    
+    <c:childComponentCmp/><br /><br />
+    <lightning:card  title="Parent  Component">
+    <div class="slds-box slds-p-around_medium">
+       <td><tr><lightning:input type="text" name="input5" label="First Name" disabled="true" value="{!v.FirstName}" /></tr>
+       <tr><lightning:input type="text" name="input6" label="Last Name" disabled="true" value="{!v.LastName}" /></tr></td>
+       <td><tr><lightning:input type="phone" name="input7" label="Phone" disabled="true" value="{!v.Phone}" /></tr>
+       <tr><lightning:input type="email" name="input8" label="Email" disabled="true" value="{!v.Email}" /></tr></td>
+
+    </div>
+    </lightning:card>
+</aura:component>

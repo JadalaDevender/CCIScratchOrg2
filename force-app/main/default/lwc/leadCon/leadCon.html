@@ -1,0 +1,77 @@
+<template>
+    <!--Data Card View -->
+    <lightning-card title="Existing Lead Data Table" icon-name="custom:custom14">
+          <!--Data Table Tag -->
+        <lightning-datatable 
+            data={wireLead.data} 
+            columns={columns} 
+            key-field="id" 
+            hide-checkbox-column="true"  
+            onrowaction={handleRowAction}
+            >
+        </lightning-datatable>
+         <!--Template For Convert View When Click On Convert Button  -->
+        <template if:true={modalContainer}><!--It will Diplay When ModalContainer=true In JS -->
+            <section  class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header"> <!--This is Header Tag For  -->
+                        <!--This Is button tag for cancel the Popup page X -->
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModalAction}>
+                            <!-- Icon For Bitton "X"-->
+                           <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                        </button>
+                        <!-- Div tag for Check Boxes -->
+                        <div  class="check"> <!-- Contact Div-->
+                            <div class="slds-float_left">
+                                <lightning-input type="checkbox"
+                                label="Contact"
+                                checked
+                                >
+                                </lightning-input>
+                                </div>
+                                <div  class="slds-float_right"><!--Opportunity div -->
+                                <lightning-input type="checkbox"
+                                label="Opportunite"
+                                checked
+                                >
+                                </lightning-input>
+                            </div>
+                            </div>
+                            <br><br>
+                            <!--Record Name Display -->
+                        <h2 class="slds-text-heading_medium slds-hyphenate">Lead Record Detail</h2>
+                     </header>
+
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <!--Table for Record Values Display -->
+                        <table class="slds-table slds-table_bordered slds-table_col-bordered slds-table_cell-buffer" >
+                           <thead> 
+                            <tr>
+                                <th>Name</th>
+                                
+                                <th>Email</th>
+                                <th>Phone </th>
+                            </tr>
+                        </thead>
+                        <tbody> 
+                            <tr>
+                                <td>{leadRow.Name}</td>
+                                
+                                <td>{leadRow.Email}</td>
+                                <td>{leadRow.Phone}</td>
+                            </tr>
+                        </tbody>   
+                        </table>
+                     </div>
+                      <!-- Footer below the Table for Convert Button-->
+                     <footer class="slds-modal__footer">
+                          <!-- Convert Button-->
+                        <lightning-button class="convert" variant="brand" label="Convert" title="Close"  onclick={handleClick}></lightning-button>
+                   </footer> 
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+   
+    </lightning-card>
+</template>

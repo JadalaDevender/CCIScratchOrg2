@@ -1,0 +1,10 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+    <aura:attribute name="enteredText" type="String"/>
+    <aura:registerEvent name="sampleComponentEvent" type="c:compEvent"/>
+    
+    <div class="slds-box slds-p-around_medium">
+        <h2>This is Child Component</h2>
+        <lightning:input label="Enter Name" aura:id="name" value ="{!v.enteredText}" />
+        <lightning:button class="slds-m-top_small" variant="brand" label="Pass Value To Parent" title="Click Here" onclick="{! c.handleClick }"/>
+    </div>
+</aura:component>

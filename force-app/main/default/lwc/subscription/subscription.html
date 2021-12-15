@@ -1,0 +1,71 @@
+<template>
+    <lightning-card  title="" icon-name="custom:custom14">
+        <div class="div" >
+            <h3 class="Head" ><strong>Step 3:Set Key Subscription Dates</strong></h3>
+            <label class="slds-checkbox_toggle slds-grid">
+              <span class="slds-form-element__label slds-m-bottom_none ">Set Subscription Start Date in the past? (optional)</span>
+              <input type="checkbox" name="checkbox-toggle-16" value="checkbox-toggle-16" aria-describedby="checkbox-toggle-16" checked="" />
+              <span id="checkbox-toggle-16" class="slds-checkbox_faux_container" aria-live="assertive">
+                <span class="slds-checkbox_faux"></span>
+                <span class="slds-checkbox_on">Yes</span>
+                <span class="slds-checkbox_off">No</span>
+              </span>
+            </label>
+            <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none">Would you like to include a Trial Period? (optional)</span>
+                <input type="checkbox" name="checkbox-toggle-16" value="checkbox-toggle-17" aria-describedby="checkbox-toggle-16" checked="" />
+                <span id="checkbox-toggle-17" class="slds-checkbox_faux_container" aria-live="assertive">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-checkbox_on">Yes</span>
+                  <span class="slds-checkbox_off">No</span>
+                </span>
+            </label>
+            <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none">Would you like to set a billing Cycle Anchor in the future? (optional)</span>
+                <input type="checkbox" name="checkbox-toggle-16" value="checkbox-toggle-18" aria-describedby="checkbox-toggle-16" checked="" />
+                <span id="checkbox-toggle-18" class="slds-checkbox_faux_container" aria-live="assertive">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-checkbox_on">Yes</span>
+                  <span class="slds-checkbox_off">No</span>
+                </span>
+            </label>
+            <h3 class="Head"><strong>Step 4:Set Billing Details</strong></h3>
+            <label class="slds-checkbox_toggle slds-grid">
+                <span class="slds-form-element__label slds-m-bottom_none">Would you like Proration applied to this Subscription?</span>
+                <input type="checkbox" name="checkbox-toggle-16" value="checkbox-toggle-18" aria-describedby="checkbox-toggle-16" checked="" />
+                <span id="checkbox-toggle-19" class="slds-checkbox_faux_container" aria-live="assertive">
+                  <span class="slds-checkbox_faux"></span>
+                  <span class="slds-checkbox_on">Yes</span>
+                  <span class="slds-checkbox_off">No</span>
+                </span>
+            </label>
+        </div> 
+
+        <div class="div">
+           <lightning-radio-group name="Select create a Cupon"
+                          label="Select create a Cupon"
+                          options={options}
+                          value={value}
+                          type="radio"
+                          >
+            </lightning-radio-group>
+            <a href={url} onclick={handleClick}>Add new Cupon</a>
+            <c-domain if:true={showSearchComponent}></c-domain>
+        </div>
+        <div class="div">
+            <lightning-radio-group name="Select a Billing Method"
+                           label="Select a Billing Method"
+                           options={options1}
+                           value={value}
+                           type="radio"
+                           required="">
+             </lightning-radio-group>    
+         </div>
+         <br>
+        <div class="footer">
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_brand" onclick={handleClick} title="Next">Next</button>
+            </footer>
+        </div>  
+    </lightning-card>
+</template>

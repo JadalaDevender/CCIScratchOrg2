@@ -1,0 +1,30 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="ContactListCompController">
+    <aura:attribute name="recordId" type="String" access="global"/>
+    <lightning:quickActionAPI aura:id="quickActionAPI" />
+    <aura:handler name='init' value='{!this}' action='{!c.init}'/>
+    <aura:attribute name='templateList' type='sObject[]'/>
+    <aura:attribute name='selectedTemplateId' type='String'/>
+    <aura:attribute name='templateBody' type='Object'/>
+    <aura:attribute name="emailActionName" type="String" access="global" default="Case.SendEmail" />
+     
+    <lightning:card >
+        <lightning:layout multipleRows="true">
+            <lightning:layoutItem size="1" class="border text-right"> 
+            </lightning:layoutItem>
+            <lightning:layoutItem size="5" class="border text-right">  
+                <lightning:select  aura:id="templateId" name="select" label="Select Template" required="true" onchange="{! c.selectTemplate }">
+                    <option value="">None</option>
+                     
+                    <aura:iteration items="{!v.templateList}" var="template">
+                        <option value="{!template.Id}">{!template.Name}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </lightning:layoutItem>
+             
+             
+            <lightning:layoutItem size="6" class="border text-right" >
+                <lightning:button label="Send Email" onclick="{!c.sendEmail}" class="slds-m-around--large" />
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

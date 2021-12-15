@@ -1,0 +1,55 @@
+<template>
+    <div class="slds-box slds-theme--default">
+        <div class="slds-text-color_inverse slds-text-heading_large" style="padding:0.5rem;background:#16325c">        
+            Insta Shares
+        </div>
+        <div style="width:200px; padding:0.5rem;">
+            <lightning-combobox name="filter"
+                                label="Status"
+                                value={selectedValue}
+                                variant="label-hidden"
+                                options={options}
+                                onchange={handleChange}
+                                placeholder="Select Industry to filter"></lightning-combobox>
+        </div>
+
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="0" onclick={sortRecs} name="Name">
+                             Name
+                        </a>
+                    </th>
+                    <th class="" scope="col">
+                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="0" onclick={sortRecs} name="AccountNumber">
+                            Email
+                        </a>
+                    </th>
+                    <th class="" scope="col">
+                        <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="0" onclick={sortRecs} name="Industry">
+                            Status
+                        </a>
+                    </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <template iterator:it={records}>
+                    <tr class="slds-hint-parent" key = {it.value.Id}>
+                        <td data-label=" Name">
+                            <div class="slds-cell-wrap">{it.value.Name}</div>
+                        </td>
+                        <td data-label="Email">
+                            <div class="slds-cell-wrap">{it.value.Email__c}</div>
+                        </td>
+                        <td data-label="Status">
+                            <div class="slds-cell-wrap">{it.value.Status__c}</div>
+                        </td>
+        
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </div>
+</template>

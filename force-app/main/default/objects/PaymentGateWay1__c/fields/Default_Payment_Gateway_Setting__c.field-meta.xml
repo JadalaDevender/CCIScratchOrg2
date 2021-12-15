@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Default_Payment_Gateway_Setting__c</fullName>
+    <businessOwnerGroup>My_project_team</businessOwnerGroup>
+    <defaultValue>true</defaultValue>
+    <externalId>false</externalId>
+    <label>Default Payment Gateway Setting</label>
+    <securityClassification>Public</securityClassification>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

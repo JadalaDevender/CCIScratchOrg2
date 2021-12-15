@@ -1,0 +1,125 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" access="global"  controller="ContactController" >
+    <lightning:card footer="Card Footer" title="Hello">
+        <aura:set attribute="actions">
+            <lightning:button label="New"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            Card Body (custom component)
+        </p>
+    </lightning:card>
+    <aura:attribute name="name" type="String" default="Your Name"/>
+    <aura:attribute name="myTitleName" type="Aura.Component[]">
+        <div>Hello {! v.name }</div>
+    </aura:attribute>
+    <lightning:card footer="Card Footer">
+        <aura:set attribute="title">
+            {!v.myTitleName}
+        </aura:set>
+        <!-- actions and body markup here -->
+    </lightning:card>
+    <aura:attribute name="options" type="List" default="[
+    {'label': 'Ross', 'value': 'option1'},
+    {'label': 'Rachel', 'value': 'option2'}
+    ]"/>
+    <!-- <aura:attribute name="value" type="List" default="option1"/> -->
+       <!-- Checkbox group -->
+    <lightning:checkboxGroup name="Checkbox Group"
+                             label="Checkbox Group"
+                             options="{! v.options1 }"
+                             value="{! v.value }"
+                             onchange="{! c.handleChange }"/>
+             <!-- dual list box -->
+     <aura:attribute name="options1" type="List" default="[
+                             { label: 'English', value: 'en' },
+                             { label: 'German', value: 'de' },
+                             { label: 'Spanish', value: 'es' },
+                             { label: 'French', value: 'fr' },
+                             { label: 'Italian', value: 'it' },
+                             { label: 'Japanese', value: 'ja' }]"/>
+     <aura:attribute name="value" type="List" default="en"/>   
+                         <lightning:dualListbox name="languages"
+                                                label= "Select Languages"
+                                                sourceLabel="Available"
+                                                selectedLabel="Selected"
+                                                fieldLevelHelp="Select your preferred languages"
+                                                options="{!v.options1}"
+                                                onchange="{! c.handleChange }"/>
+                                                <div class="slds-p-around_medium">
+                                                    <lightning:recordEditForm objectApiName="Account"
+                                                                                 onsubmit="{!c.handleSubmit}">
+                                                        <lightning:messages />
+                                                        <lightning:inputField fieldName="Name" />
+                                                        <lightning:inputField fieldName="Phone" />
+                                                        <lightning:inputField fieldName="BillingAddress" />
+                                                        <lightning:button type="submit" name="Submit" label="submit" class="slds-m-top_medium"/>
+                                                    </lightning:recordEditForm>
+                                                </div> 
+                                                <lightning:recordEditForm recordId="0035g00000GHe0zAAD" objectApiName="Contact">
+                                                    <lightning:messages />
+                                                    <lightning:outputField fieldName="AccountId" />
+                                                    <lightning:inputField fieldName="FirstName" />
+                                                    <lightning:inputField fieldName="LastName" />
+                                                    <lightning:inputField fieldName="Email" />
+                                                    <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" />
+                                                </lightning:recordEditForm>
+                             <lightning:recordEditForm aura:id="recordEditForm"
+                              objectApiName="Contact">
+                             <lightning:messages />
+                             <lightning:inputField fieldName="Name" />
+                             <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+                         </lightning:recordEditForm>
+                         <lightning:recordEditForm recordId="0035g00000GHe0zAAD" objectApiName="Contact">
+                            <div class="slds-grid">
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning:inputField fieldName="Name" />
+                                   
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning:inputField fieldName="Phone" />
+                                </div>
+                            </div>
+                        </lightning:recordEditForm>
+                        <lightning:recordEditForm objectApiName="Account">
+                            <lightning:messages />
+                            <lightning:inputField fieldName="Name" value="My Field Value"/>
+                            <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+                        </lightning:recordEditForm>
+        <lightning:recordEditForm
+        objectApiName="Account"
+        onload="{!c.handleCreateLoad}">
+    <lightning:messages />
+    <lightning:inputField aura:id="nameField" fieldName="Name"/>
+    <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+</lightning:recordEditForm>
+                                                        
+<aura:attribute name="pageReference" type="Object"/>
+<lightning:navigation aura:id="navService"/>
+
+<lightning:recordEditForm aura:id="recordEditForm"      
+                          objectApiName="Case"  
+                          onsubmit="{!c.handleSubmit}"
+                          onsuccess="{!c.handleSuccess}">    
+    <lightning:messages /> 
+    
+    <lightning:inputField fieldName="Origin" />    
+    <lightning:inputField fieldName="Status" />    
+    <lightning:inputField fieldName="Subject" />    
+    <lightning:button class="slds-m-top_small" type="submit" label="Create case" />    
+</lightning:recordEditForm>                                          
+<lightning:recordForm
+recordId="0035g00000GHe0zAAD"
+objectApiName="Contact"
+layoutType="Compact"
+        columns="1"
+        mode="readonly" />
+        <aura:attribute name="fields" type="String[]" default="['Name','AnnualRevenue','Industry']" />
+    <lightning:recordForm
+        aura:id="myRecordForm"
+        recordId="{!v.recordId}"
+        objectApiName="Account"
+        fields="{!v.fields}"
+        columns="2"
+        mode="edit"
+        onsubmit="{!c.handleSubmit}" />
+                                            
+</aura:component>

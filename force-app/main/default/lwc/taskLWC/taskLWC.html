@@ -1,0 +1,24 @@
+<template>
+        <lightning-layout multiple-rows>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                    <lightning-input onchange={datehandler1} name="input1" class="dateCmp1" type="date" label="Start Date" required='true'></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                    <lightning-input  class="dateCmp2" onchange={datehandler2} name="input1"  type="date" label="End Date" required='true'></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+           
+    <template if:true={showTable}>
+            <lightning-datatable
+                    key-field="Id"
+                    data={records}
+                    columns={columns}
+                    hide-checkbox-column
+                    draft-values={draftValues}
+                    onsave={handleSave}
+                    onheaderaction={handleHeaderAction}>
+            </lightning-datatable>
+    
+    </template>
+
+</template>

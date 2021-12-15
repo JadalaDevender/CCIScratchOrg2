@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Date Range Selector">
+        <p class="slds-var-p-around_small">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                    <lightning-input onchange={datehandler1} name="input1" class="dateCmp1" type="date" label="Start Date" required='true'></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="6">
+                    <lightning-input  class="dateCmp2" onchange={datehandler2} name="input1"  type="date" label="End Date" required='true'></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        </p>
+        <template if:true={visible}>
+        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+            <h3 class="slds-text-heading_small slds-text-color--error"><strong>No Of Days Selected: {result} </strong></h3> 
+             
+        </div>
+    </template>
+    </lightning-card>
+</template>

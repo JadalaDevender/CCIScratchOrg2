@@ -1,0 +1,6 @@
+<aura:event type="COMPONENT">
+    <aura:attribute name="Fname" type="String"/>
+    <aura:attribute name="Lname" type="String"/>
+    <aura:attribute name="Phone" type="String"/>
+    <aura:attribute name="Email" type="String"/>
+</aura:event>

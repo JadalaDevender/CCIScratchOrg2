@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+    <aura:attribute name="enteredFname" type="String" />
+    <aura:attribute name="enteredLname" type="String"/>
+    <aura:attribute name="enteredPhone" type="String"/>
+    <aura:attribute name="enteredEmail" type="String"/>
+    <aura:registerEvent name="sampleComponentEvent" type="c:compEvent"/>
+   
+    <lightning:card  title="Child Component">
+    <div class="slds-box slds-p-around_medium">
+        <td> <lightning:input label="First Name" aura:id="name" value ="{!v.enteredFname}" required="true"/>
+         <lightning:input label="Last Name" aura:id="name" value ="{!v.enteredLname}" required="true" />
+         <lightning:input label="Phone" aura:id="name" value ="{!v.enteredPhone}" required="true" />
+         <lightning:input label="Email" aura:id="name" value ="{!v.enteredEmail}" required="true"/></td>
+        <lightning:button class="slds-m-top_small" variant="brand" label="Pass Value To Parent" title="Click Here" onclick="{! c.handleClick }"/>
+    </div>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome" access="global" >
+
+    <aura:attribute name="enteredValue" type="String" />
+    <aura:handler name="sampleComponentEvent" event="c:compEvent"
+    action="{!c.handleComponentEvent}"/>
+    <c:ChildAura/><br /><br />
+    <div class="slds-box slds-p-around_medium">
+        <h2>This is Parent Component</h2>
+        value entered on child component input Box: <b>{!v.enteredValue}</b>
+    </div>
+</aura:component>

@@ -1,0 +1,20 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickAction,force:hasRecordId" access="global"  controller="DataTableExampleController">
+    <aura:attribute name="lstOfRecords" type="Object[]"/>
+    <aura:attribute name="columnsHeader" type="List"/>
+    <aura:attribute name="RecordId" type="String" default="" access="global" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+        <lightning:card title="Contact's FiledSet Data Table"> 
+            <p class="slds-p-horizontal_small">  
+                <div style="height: 400px">
+                    <lightning:datatable 
+                         data="{!v.lstOfRecords}"
+                         columns="{!v.columnsHeader}"
+                         keyField="Id"
+                         onrowaction="{!c.handleRowAction}"
+                    />
+                </div>
+               
+            </p>  
+        </lightning:card> 
+
+</aura:component>
